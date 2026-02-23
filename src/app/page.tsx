@@ -101,18 +101,33 @@ export default function Home() {
           <nav className="flex items-center gap-6">
             <a 
               href="#experience-section" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('experience-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
             >
               [ Experience ]
             </a>
             <a 
               href="#education-section" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('education-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
             >
               [ Education ]
             </a>
             <a 
               href="#projects-section" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('projects-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
             >
               [ Projects ]
