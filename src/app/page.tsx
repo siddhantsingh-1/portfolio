@@ -147,80 +147,81 @@ export default function Home() {
       <section className="flex items-center justify-center min-h-screen relative overflow-hidden">
         <BrownianMotionBackground />
         <div className="max-w-6xl mx-auto px-6 py-20 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-1 gap-12 items-center lg:grid-cols-2">
             {/* Left Column - Text Content */}
-            <div className="space-y-8 text-center md:text-left">
+            <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
               <div className="space-y-4">
-                <h1 className="text-6xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500">
                   Siddhant Singh
                 </h1>
-                <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-2xl">
+                <p className="text-xl md:text-2xl lg:text-2xl text-slate-400 font-medium max-w-2xl">
                   MS in Financial Engineering @ NYU Tandon | Quantitative Researcher & Developer
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
-                  asChild
-                >
-                  <a 
-                    href="https://github.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
+                    asChild
                   >
-                    <Github className="w-5 h-5" />
-                    GitHub
-                  </a>
-                </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
-                  asChild
-                >
-                  <a 
-                    href="https://linkedin.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
+                    <a 
+                      href="https://github.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Github className="w-5 h-5" />
+                      GitHub
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
+                    asChild
                   >
-                    <Linkedin className="w-5 h-5" />
-                    LinkedIn
-                  </a>
-                </Button>
-                
-                <Button 
-                  size="lg"
-                  className="bg-slate-50 text-slate-950 hover:bg-slate-200"
-                  asChild
-                >
-                  <a 
-                    href="/resume.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                      LinkedIn
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    size="lg"
+                    className="bg-slate-50 text-slate-950 hover:bg-slate-200"
+                    asChild
                   >
-                    <FileText className="w-5 h-5" />
-                    View Resume
-                  </a>
-                </Button>
+                    <a 
+                      href="/resume.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <FileText className="w-5 h-5" />
+                      View Resume
+                    </a>
+                  </Button>
+                </div>
               </div>
-            </div>
 
             {/* Right Column - Profile Image */}
-            <div className="flex justify-center md:justify-end">
+            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
               <div className="relative">
                 <Image
                   src="/profile.jpeg"
                   alt="Siddhant Singh"
-                  width={300}
-                  height={300}
-                  className="rounded-2xl border-2 border-zinc-800 shadow-2xl"
+                  width={250}
+                  height={250}
+                  className="rounded-2xl border-2 border-zinc-800 shadow-2xl lg:w-[300px] lg:h-[300px]"
                   priority
                 />
               </div>
