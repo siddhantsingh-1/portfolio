@@ -1,79 +1,102 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle, FolderOpen } from "lucide-react";
+import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle, FolderOpen, ChevronDown, ExternalLink } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import 'katex/dist/katex.min.css';
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="flex items-center justify-center min-h-screen">
-        <div className="max-w-4xl mx-auto px-6 py-20 text-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold text-slate-50 tracking-tight">
-                Siddhant Singh
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mx-auto">
-                MS in Financial Engineering @ NYU Tandon | Quantitative Researcher & Developer
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
-                asChild
-              >
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <Github className="w-5 h-5" />
-                  GitHub
-                </a>
-              </Button>
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="space-y-8 text-center md:text-left">
+              <div className="space-y-4">
+                <h1 className="text-6xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500">
+                  Siddhant Singh
+                </h1>
+                <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-2xl">
+                  MS in Financial Engineering @ NYU Tandon | Quantitative Researcher & Developer
+                </p>
+              </div>
               
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
-                asChild
-              >
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
+                  asChild
                 >
-                  <Linkedin className="w-5 h-5" />
-                  LinkedIn
-                </a>
-              </Button>
-              
-              <Button 
-                size="lg"
-                className="bg-slate-50 text-slate-950 hover:bg-slate-200"
-                asChild
-              >
-                <a 
-                  href="/resume.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  <a 
+                    href="https://github.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Github className="w-5 h-5" />
+                    GitHub
+                  </a>
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-slate-700 text-slate-50 hover:bg-slate-800 hover:text-slate-50"
+                  asChild
                 >
-                  <FileText className="w-5 h-5" />
-                  View Resume
-                </a>
-              </Button>
+                  <a 
+                    href="https://linkedin.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    LinkedIn
+                  </a>
+                </Button>
+                
+                <Button 
+                  size="lg"
+                  className="bg-slate-50 text-slate-950 hover:bg-slate-200"
+                  asChild
+                >
+                  <a 
+                    href="/resume.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <FileText className="w-5 h-5" />
+                    View Resume
+                  </a>
+                </Button>
+              </div>
             </div>
+
+            {/* Right Column - Profile Image */}
+            <div className="flex justify-center md:justify-end">
+              <div className="relative">
+                <Image
+                  src="/profile.jpeg"
+                  alt="Siddhant Singh"
+                  width={300}
+                  height={300}
+                  className="rounded-2xl border-2 border-zinc-800 shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <ChevronDown className="w-6 h-6 text-slate-400 animate-bounce" />
           </div>
         </div>
       </section>
@@ -94,7 +117,16 @@ export default function Home() {
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
                 <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-slate-50">Macquarie Group</CardTitle>
+                    <CardTitle className="text-slate-50">
+                      <a 
+                        href="https://www.macquarie.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-zinc-300 transition-colors underline decoration-zinc-600 underline-offset-2"
+                      >
+                        Macquarie Group
+                      </a>
+                    </CardTitle>
                     <CardDescription className="text-slate-400">
                       Senior Associate, Model Risk Management
                     </CardDescription>
@@ -121,7 +153,16 @@ export default function Home() {
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
                 <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-slate-50">WorldQuant</CardTitle>
+                    <CardTitle className="text-slate-50">
+                      <a 
+                        href="https://www.worldquant.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-zinc-300 transition-colors underline decoration-zinc-600 underline-offset-2"
+                      >
+                        WorldQuant
+                      </a>
+                    </CardTitle>
                     <CardDescription className="text-slate-400">
                       Consultant, Alpha Research
                     </CardDescription>
@@ -145,7 +186,16 @@ export default function Home() {
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
                 <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-slate-50">Macquarie Group</CardTitle>
+                    <CardTitle className="text-slate-50">
+                      <a 
+                        href="https://www.macquarie.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-zinc-300 transition-colors underline decoration-zinc-600 underline-offset-2"
+                      >
+                        Macquarie Group
+                      </a>
+                    </CardTitle>
                     <CardDescription className="text-slate-400">
                       Summer Intern, Model Risk Management
                     </CardDescription>
@@ -179,7 +229,16 @@ export default function Home() {
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
                 <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-slate-50">New York University, Tandon School of Engineering</CardTitle>
+                    <CardTitle className="text-slate-50">
+                      <a 
+                        href="https://engineering.nyu.edu" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-zinc-300 transition-colors underline decoration-zinc-600 underline-offset-2"
+                      >
+                        New York University, Tandon School of Engineering
+                      </a>
+                    </CardTitle>
                     <CardDescription className="text-slate-400">
                       Master of Science in Financial Engineering
                     </CardDescription>
@@ -200,7 +259,16 @@ export default function Home() {
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
                 <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-slate-50">Netaji Subhas University of Technology</CardTitle>
+                    <CardTitle className="text-slate-50">
+                      <a 
+                        href="https://nsut.ac.in" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-zinc-300 transition-colors underline decoration-zinc-600 underline-offset-2"
+                      >
+                        Netaji Subhas University of Technology
+                      </a>
+                    </CardTitle>
                     <CardDescription className="text-slate-400">
                       Bachelor of Technology in Mathematics and Computing
                     </CardDescription>
@@ -254,10 +322,46 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Python</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Quantitative Finance</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Stochastic Calculus</Badge>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                    asChild
+                  >
+                    <a 
+                      href="https://github.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Github className="w-4 h-4" />
+                      GitHub Repo
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                    asChild
+                  >
+                    <a 
+                      href="https://demo.example.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -284,10 +388,46 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">C++</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">HFT</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Algorithmic Trading</Badge>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                    asChild
+                  >
+                    <a 
+                      href="https://github.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <Github className="w-4 h-4" />
+                      GitHub Repo
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                    asChild
+                  >
+                    <a 
+                      href="https://demo.example.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
