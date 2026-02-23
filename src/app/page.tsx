@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench } from "lucide-react";
+import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle } from "lucide-react";
 
 export default function Home() {
   return (
@@ -74,98 +74,143 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience & Education Section */}
+      {/* Experience & Education Timeline Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Experience Column */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-6">
-                <Briefcase className="w-6 h-6 text-slate-400" />
-                <h2 className="text-3xl font-bold text-slate-50">Professional Experience</h2>
-              </div>
-              
-              <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-slate-50">Macquarie Group</CardTitle>
-                  <CardDescription className="text-slate-400">
-                    Senior Associate, Model Risk Management
-                  </CardDescription>
-                  <CardDescription className="text-slate-500 text-sm">
-                    April 2024 - June 2025
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-slate-300">
-                    Ensured regulatory compliance across all business lines through integrity reviews of pricing models and rates transformation pipelines, aligning with SR 11-7 governance standards.
-                  </p>
-                  <p className="text-slate-300">
-                    Conducted C++/Python model code reviews; created targeted test cases to evaluate edge cases, assumptions & limitations.
-                  </p>
-                  <p className="text-slate-300">
-                    Discovered and reported model issues with exposures up to $150M, leading to rectification by relevant teams.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-slate-50">WorldQuant BRAIN</CardTitle>
-                  <CardDescription className="text-slate-400">
-                    Consultant, Alpha Research
-                  </CardDescription>
-                  <CardDescription className="text-slate-500 text-sm">
-                    December 2023 - March 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300">
-                    Designed and backtested 25+ alpha signals on the BRAIN platform employing statistical transformations of price, volume, and fundamental features.
-                  </p>
-                </CardContent>
-              </Card>
+        <div className="max-w-4xl mx-auto">
+          {/* Professional Experience Timeline */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <Briefcase className="w-6 h-6 text-slate-400" />
+              <h2 className="text-3xl font-bold text-slate-50">Professional Experience</h2>
             </div>
-
-            {/* Education Column */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-6">
-                <GraduationCap className="w-6 h-6 text-slate-400" />
-                <h2 className="text-3xl font-bold text-slate-50">Education</h2>
+            
+            <div className="relative border-l-2 border-zinc-800 ml-4">
+              {/* Macquarie Senior Associate */}
+              <div className="relative mb-12 ml-8">
+                <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
+                <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+                  <CardHeader>
+                    <CardTitle className="text-slate-50">Macquarie Group</CardTitle>
+                    <CardDescription className="text-slate-400">
+                      Senior Associate, Model Risk Management
+                    </CardDescription>
+                    <CardDescription className="text-slate-500 text-sm">
+                      April 2024 - June 2025
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-slate-300">
+                      Performed quantitative validation and analytical reviews of pricing and valuation models (C++/Python) used across FICC and Equity businesses, ensuring accuracy of curve construction, derivative pricing and calibration logic.
+                    </p>
+                    <p className="text-slate-300">
+                      Conducted detailed model code reviews; developed targeted Python test frameworks, model stress scenarios and backtesting routines to assess numerical stability, boundary behaviour and pricing consistency.
+                    </p>
+                    <p className="text-slate-300">
+                      Discovered and reported model issues with exposures up to $150M, leading to rectification by relevant teams.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
-              
-              <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-slate-50">New York University, Tandon School of Engineering</CardTitle>
-                  <CardDescription className="text-slate-400">
-                    Master of Science in Financial Engineering
-                  </CardDescription>
-                  <CardDescription className="text-slate-500 text-sm">
-                    GPA: 3.8/4.0 | Expected May 2027
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300">
-                    Specializing in quantitative finance, risk management, and computational methods with coursework in Quantitative Methods, Applied Linear Algebra, and Optimization.
-                  </p>
-                </CardContent>
-              </Card>
 
-              <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-slate-50">Netaji Subhas University of Technology</CardTitle>
-                  <CardDescription className="text-slate-400">
-                    Bachelor of Technology in Mathematics and Computing
-                  </CardDescription>
-                  <CardDescription className="text-slate-500 text-sm">
-                    GPA: 3.4/4.0 | August 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300">
-                    Combined mathematics and computer science education with focus on algorithms, data structures, and big data analytics.
-                  </p>
-                </CardContent>
-              </Card>
+              {/* WorldQuant Consultant */}
+              <div className="relative mb-12 ml-8">
+                <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
+                <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+                  <CardHeader>
+                    <CardTitle className="text-slate-50">WorldQuant</CardTitle>
+                    <CardDescription className="text-slate-400">
+                      Consultant, Alpha Research
+                    </CardDescription>
+                    <CardDescription className="text-slate-500 text-sm">
+                      December 2023 - March 2024
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-slate-300">
+                      Designed and backtested 25+ systematic alpha signals on global equities using Python and WorldQuant BRAIN platform; applied feature engineering, factor modelling, and time-series transformations.
+                    </p>
+                    <p className="text-slate-300">
+                      Constructed predictive signals leveraging z-scores, residualization, and rolling-statistics across price, volume and fundamental data; evaluated performance via IC, turnover, and Sharpe metrics.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Macquarie Summer Intern */}
+              <div className="relative mb-12 ml-8">
+                <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
+                <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+                  <CardHeader>
+                    <CardTitle className="text-slate-50">Macquarie Group</CardTitle>
+                    <CardDescription className="text-slate-400">
+                      Summer Intern, Model Risk Management
+                    </CardDescription>
+                    <CardDescription className="text-slate-500 text-sm">
+                      May 2023 - July 2023
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-slate-300">
+                      Developed Python automation pipelines to analyze and validate pricing model outputs, reducing manual review effort by 30% and accelerating model testing turnaround by 50%.
+                    </p>
+                    <p className="text-slate-300">
+                      Integrated Python analytics with legacy C++ model libraries to extract and map 350+ rate-transformation classes; applied regex and graph-based traversal (BFS) to document dependency structures.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+
+          {/* Education Timeline */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <GraduationCap className="w-6 h-6 text-slate-400" />
+              <h2 className="text-3xl font-bold text-slate-50">Education</h2>
+            </div>
+            
+            <div className="relative border-l-2 border-zinc-800 ml-4">
+              {/* NYU Tandon */}
+              <div className="relative mb-12 ml-8">
+                <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
+                <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+                  <CardHeader>
+                    <CardTitle className="text-slate-50">New York University, Tandon School of Engineering</CardTitle>
+                    <CardDescription className="text-slate-400">
+                      Master of Science in Financial Engineering
+                    </CardDescription>
+                    <CardDescription className="text-slate-500 text-sm">
+                      GPA: 3.8/4.0 | Expected May 2027
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300">
+                      Specializing in quantitative finance, risk management, and computational methods with coursework in Probability Theory, Stochastic Processes, and Machine Learning.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* NSUT */}
+              <div className="relative mb-12 ml-8">
+                <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
+                <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+                  <CardHeader>
+                    <CardTitle className="text-slate-50">Netaji Subhas University of Technology</CardTitle>
+                    <CardDescription className="text-slate-400">
+                      Bachelor of Technology in Mathematics and Computing
+                    </CardDescription>
+                    <CardDescription className="text-slate-500 text-sm">
+                      GPA: 3.4/4.0 | August 2024
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300">
+                      Combined mathematics and computer science education with focus on algorithms, data structures, and big data analytics.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
