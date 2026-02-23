@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +10,7 @@ import rehypeKatex from "rehype-katex";
 import 'katex/dist/katex.min.css';
 import Image from "next/image";
 import BrownianMotionBackground from "@/components/BrownianMotionBackground";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function Home() {
   return (
@@ -321,6 +324,71 @@ export default function Home() {
                     >
                       {`The forward rate follows SDE: $d\\hat{f}_t = \\hat{\\alpha}_t \\hat{f}_t^\\beta dW_{1,t}$`}
                     </ReactMarkdown>
+                  </div>
+                </div>
+                
+                {/* Volatility Smile Chart */}
+                <div className="bg-slate-800/50 p-4 rounded-lg">
+                  <p className="text-slate-400 text-sm mb-4">Volatility Smile Visualization:</p>
+                  <div className="h-48 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart 
+                        data={[
+                          { strike: 80, volatility: 0.35 },
+                          { strike: 85, volatility: 0.32 },
+                          { strike: 90, volatility: 0.28 },
+                          { strike: 95, volatility: 0.25 },
+                          { strike: 100, volatility: 0.23 },
+                          { strike: 105, volatility: 0.24 },
+                          { strike: 110, volatility: 0.26 },
+                          { strike: 115, volatility: 0.29 },
+                          { strike: 120, volatility: 0.33 }
+                        ]}
+                        margin={{ top: 5, right: 5, bottom: 5, left: 5 }}
+                      >
+                        <XAxis 
+                          dataKey="strike" 
+                          stroke="#64748b" 
+                          fontSize={10}
+                          tick={{ fill: '#64748b' }}
+                          axisLine={false}
+                          tickLine={false}
+                        />
+                        <YAxis 
+                          stroke="#64748b" 
+                          fontSize={10}
+                          tick={{ fill: '#64748b' }}
+                          axisLine={false}
+                          tickLine={false}
+                          domain={[0.2, 0.4]}
+                        />
+                        <Tooltip 
+                          contentStyle={{ 
+                            backgroundColor: '#1e293b', 
+                            border: '1px solid #334155',
+                            borderRadius: '6px',
+                            fontSize: '12px'
+                          }}
+                          labelStyle={{ color: '#e2e8f0' }}
+                          itemStyle={{ color: '#60a5fa' }}
+                          formatter={(value: any) => [`${(value as number).toFixed(3)}`, 'Implied Vol']}
+                          labelFormatter={(label) => [`Strike: ${label}`, '']}
+                        />
+                        <Line 
+                          type="monotone" 
+                          dataKey="volatility" 
+                          stroke="#60a5fa" 
+                          strokeWidth={2}
+                          dot={false}
+                          activeDot={{ 
+                            r: 4, 
+                            fill: '#60a5fa',
+                            stroke: '#1e40af',
+                            strokeWidth: 2
+                          }}
+                        />
+                      </LineChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
                 
