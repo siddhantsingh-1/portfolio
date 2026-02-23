@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle } from "lucide-react";
+import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle, FolderOpen } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 export default function Home() {
   return (
@@ -212,6 +215,81 @@ export default function Home() {
                 </Card>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-20 px-6 bg-slate-900/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-12">
+            <FolderOpen className="w-6 h-6 text-slate-400" />
+            <h2 className="text-3xl font-bold text-slate-50">Projects</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* SABR Model Calibration */}
+            <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+              <CardHeader>
+                <CardTitle className="text-slate-50">SABR Model Calibration</CardTitle>
+                <CardDescription className="text-slate-400">
+                  Fixed Income & Volatility Modeling
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-slate-300">
+                  Implemented the Stochastic Alpha Beta Rho (SABR) model for volatility surface modeling and calibration to market data.
+                </p>
+                
+                <div className="bg-slate-800/50 p-4 rounded-lg">
+                  <p className="text-slate-400 text-sm mb-2">Mathematical Foundation:</p>
+                  <div className="text-slate-200 text-sm">
+                    <ReactMarkdown 
+                      remarkPlugins={[remarkMath]}
+                      rehypePlugins={[rehypeKatex]}
+                    >
+                      {`The forward rate follows SDE: $d\\hat{f}_t = \\hat{\\alpha}_t \\hat{f}_t^\\beta dW_{1,t}$`}
+                    </ReactMarkdown>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Python</Badge>
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Quantitative Finance</Badge>
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Stochastic Calculus</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Stevens HFT Competition */}
+            <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+              <CardHeader>
+                <CardTitle className="text-slate-50">Stevens HFT Competition 2026</CardTitle>
+                <CardDescription className="text-slate-400">
+                  Team: Sub Zero Latency
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-slate-300">
+                  Developed a low-latency market-making strategy in C++ with focus on limit order book dynamics and high-frequency trading execution.
+                </p>
+                
+                <div className="bg-slate-800/50 p-4 rounded-lg">
+                  <p className="text-slate-400 text-sm mb-2">Key Optimizations:</p>
+                  <div className="text-slate-200 text-sm space-y-1">
+                    <p>• Optimized Sharpe ratio through dynamic position sizing</p>
+                    <p>• Implemented bid-ask spread heuristics for market impact minimization</p>
+                    <p>• Real-time limit order book analysis with microsecond latency</p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">C++</Badge>
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">HFT</Badge>
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Algorithmic Trading</Badge>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
