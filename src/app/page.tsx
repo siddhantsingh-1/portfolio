@@ -7,13 +7,15 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import 'katex/dist/katex.min.css';
 import Image from "next/image";
+import BrownianMotionBackground from "@/components/BrownianMotionBackground";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="flex items-center justify-center min-h-screen">
-        <div className="max-w-6xl mx-auto px-6 py-20">
+      <section className="flex items-center justify-center min-h-screen relative overflow-hidden">
+        <BrownianMotionBackground />
+        <div className="max-w-6xl mx-auto px-6 py-20 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-8 text-center md:text-left">
