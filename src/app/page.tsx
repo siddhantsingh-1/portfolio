@@ -237,7 +237,7 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://github.com" 
+                      href="https://github.com/siddhantsingh-1" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
@@ -254,7 +254,7 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://linkedin.com" 
+                      href="https://www.linkedin.com/in/siddhant-singh4/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
@@ -614,7 +614,7 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://github.com" 
+                      href="https://github.com/siddhantsingh-1" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
@@ -680,7 +680,7 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://github.com" 
+                      href="https://github.com/siddhantsingh-1" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
