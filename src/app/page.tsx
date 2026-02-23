@@ -281,6 +281,7 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
+            </div>
 
             {/* Right Column - Profile Image */}
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
