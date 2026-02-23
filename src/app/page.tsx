@@ -1,9 +1,11 @@
 "use client";
 
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle, FolderOpen, ChevronDown, ExternalLink } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Github, Linkedin, FileText, Briefcase, GraduationCap, Code, TrendingUp, Wrench, Circle, FolderOpen, ChevronDown, ExternalLink, Terminal } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -12,9 +14,90 @@ import Image from "next/image";
 import BrownianMotionBackground from "@/components/BrownianMotionBackground";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
+function TerminalDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [currentLine, setCurrentLine] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  
+  const lines = [
+    "$ run cube_stats.py",
+    "> Initializing sub-12s algorithm...",
+    "> Hardware: GAN v100",
+    "> Current PB Average: 11.4s",
+    "> Status: Solved."
+  ];
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      setCurrentLine(0);
+      setCurrentText("");
+      return;
+    }
+
+    const line = lines[currentLine];
+    if (!line) return;
+
+    let charIndex = 0;
+    const interval = setInterval(() => {
+      if (charIndex < line.length) {
+        setCurrentText(prev => prev + line[charIndex]);
+        charIndex++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          if (currentLine < lines.length - 1) {
+            setCurrentLine(prev => prev + 1);
+            setCurrentText("");
+          }
+        }, 500);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [currentLine, isOpen]);
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="bg-black border border-zinc-800 text-green-400 font-mono text-sm max-w-2xl">
+        <DialogHeader>
+          <DialogTitle className="text-green-400 font-mono">terminal</DialogTitle>
+        </DialogHeader>
+        <div className="bg-black rounded p-4 min-h-[200px]">
+          <div className="space-y-1">
+            {lines.slice(0, currentLine).map((line, index) => (
+              <div key={index} className="text-green-400">{line}</div>
+            ))}
+            {currentText && (
+              <div className="text-green-400">
+                {currentText}
+                <span className="animate-pulse">_</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export default function Home() {
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  
   return (
     <div className="min-h-screen bg-slate-950">
+      {/* Header Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-sm border-b border-zinc-900">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="text-slate-50 font-mono text-sm">siddhant@portfolio:~$</div>
+          <button
+            onClick={() => setIsTerminalOpen(true)}
+            className="text-slate-400 hover:text-slate-200 transition-colors p-2 rounded hover:bg-slate-800"
+            aria-label="Open terminal"
+          >
+            <Terminal className="w-4 h-4" />
+          </button>
+        </div>
+      </header>
+      
       {/* Hero Section */}
       <section className="flex items-center justify-center min-h-screen relative overflow-hidden">
         <BrownianMotionBackground />
@@ -567,6 +650,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Terminal Dialog */}
+      <TerminalDialog isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
     </div>
   );
 }
