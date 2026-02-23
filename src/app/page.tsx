@@ -95,16 +95,36 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Header Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-sm border-b border-zinc-900">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-zinc-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-slate-50 font-mono text-sm">siddhant@portfolio:~$</div>
-          <button
-            onClick={() => setIsTerminalOpen(true)}
-            className="text-slate-400 hover:text-slate-200 transition-colors p-2 rounded hover:bg-slate-800"
-            aria-label="Open terminal"
-          >
-            <Terminal className="w-4 h-4" />
-          </button>
+          <nav className="flex items-center gap-6">
+            <a 
+              href="#experience-section" 
+              className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
+            >
+              [ Experience ]
+            </a>
+            <a 
+              href="#education-section" 
+              className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
+            >
+              [ Education ]
+            </a>
+            <a 
+              href="#projects-section" 
+              className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
+            >
+              [ Projects ]
+            </a>
+            <button
+              onClick={() => setIsTerminalOpen(true)}
+              className="text-slate-400 hover:text-slate-200 transition-colors p-2 rounded hover:bg-slate-800"
+              aria-label="Open terminal"
+            >
+              <Terminal className="w-4 h-4" />
+            </button>
+          </nav>
         </div>
       </header>
       
@@ -209,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* Experience & Education Timeline Section */}
-      <section id="experience-section" className="py-20 px-6">
+      <section id="experience-section" className="py-20 px-6 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           {/* Professional Experience Timeline */}
           <div className="mb-20">
@@ -324,7 +344,7 @@ export default function Home() {
           </div>
 
           {/* Education Timeline */}
-          <div>
+          <div id="education-section" className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-8">
               <GraduationCap className="w-6 h-6 text-slate-400" />
               <h2 className="text-3xl font-bold text-slate-50">Education</h2>
@@ -396,7 +416,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 px-6 bg-slate-900/20">
+      <section id="projects-section" className="py-20 px-6 bg-slate-900/20 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-12">
             <FolderOpen className="w-6 h-6 text-slate-400" />
@@ -608,7 +628,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 px-6 bg-slate-900/30">
+      <section className="py-12 px-6 bg-slate-900/30 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-50 mb-4">Tech Stack</h2>
