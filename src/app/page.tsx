@@ -81,6 +81,16 @@ function TerminalDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
 
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(true);
+  
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY < 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   return (
     <div className="min-h-screen bg-slate-950">
@@ -183,14 +193,23 @@ export default function Home() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <ChevronDown className="w-6 h-6 text-slate-400 animate-bounce" />
-          </div>
+          {showScrollButton && (
+            <button
+              onClick={() => {
+                const element = document.getElementById('experience-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 text-slate-400 hover:text-slate-200 transition-all duration-300 p-2 rounded-full hover:bg-slate-800/50"
+              aria-label="Scroll to experience section"
+            >
+              <ChevronDown className="w-6 h-6 animate-bounce" />
+            </button>
+          )}
         </div>
       </section>
 
       {/* Experience & Education Timeline Section */}
-      <section className="py-20 px-6">
+      <section id="experience-section" className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           {/* Professional Experience Timeline */}
           <div className="mb-20">
