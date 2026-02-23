@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Siddhant Singh | Quantitative Finance Portfolio
 
-## Getting Started
+A modern, interactive portfolio website showcasing quantitative finance projects and professional experience in financial engineering and algorithmic trading.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Modern UI component library
+- **Framer Motion** - Smooth animations and interactions
+- **Recharts** - Data visualization for financial charts
+- **React Markdown** - Mathematical content rendering with KaTeX
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📊 Interactive SABR Volatility Smile
+- Real-time visualization of the Stochastic Alpha Beta Rho (SABR) model
+- Mathematical foundation with LaTeX rendering
+- Responsive chart implementation using Recharts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📈 Vertical Career Timeline
+- Professional experience timeline with detailed role descriptions
+- Education history with institution links
+- Smooth scroll navigation between sections
 
-## Learn More
+### 💻 Terminal-Style UI
+- Interactive terminal dialog with typing animation
+- Command-line aesthetic for technical showcase
+- Easter egg functionality for tech enthusiasts
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Project Highlights
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Stevens HFT Competition 2026
+- **Team**: Sub Zero Latency
+- **Technology**: C++ with microsecond latency optimization
+- **Focus**: Low-latency market-making strategy with limit order book dynamics
+- **Key Features**: Dynamic position sizing, bid-ask spread heuristics, real-time LOB analysis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### SABR Model Calibration
+- **Domain**: Fixed Income & Volatility Modeling
+- **Technology**: Python with quantitative finance libraries
+- **Features**: Volatility surface modeling, market data calibration, mathematical visualization
+- **Applications**: Derivative pricing, risk management, trading strategies
 
-## Deploy on Vercel
+## 🛠️ Setup Instructions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/siddhantsingh-1/portfolio.git
+   cd portfolio
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📱 Responsive Design
+
+- **Mobile-first approach** with adaptive layouts
+- **Touch-friendly navigation** for mobile devices
+- **Optimized performance** across all screen sizes
+- **Smooth animations** with hardware acceleration
+
+## 🎨 Design System
+
+- **Dark theme** with slate color palette
+- **Terminal-inspired aesthetics** for technical appeal
+- **Consistent spacing** using Tailwind's design tokens
+- **Modern typography** with optimized readability
+
+## 📊 Performance
+
+- **Optimized images** with Next.js Image component
+- **Lazy loading** for improved initial load time
+- **Minimal bundle size** with tree-shaking
+- **SEO-friendly** with proper meta tags
+
+## 🤝 Connect
+
+- **LinkedIn**: [Siddhant Singh](https://www.linkedin.com/in/siddhant-singh4/)
+- **GitHub**: [siddhantsingh-1](https://github.com/siddhantsingh-1)
+- **Live Portfolio**: [View on Vercel](https://your-vercel-url.vercel.app)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🚀 Deployment
+
+This portfolio is deployed on Vercel for optimal performance and global CDN distribution.
+
+---
+
+*Built with ❤️ and TypeScript*
