@@ -82,6 +82,7 @@ function TerminalDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   React.useEffect(() => {
     const handleScroll = () => {
@@ -96,9 +97,11 @@ export default function Home() {
     <div className="min-h-screen bg-slate-950">
       {/* Header Navigation */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-zinc-800">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
           <div className="text-slate-50 font-mono text-sm">siddhant@portfolio:~$</div>
-          <nav className="flex items-center gap-6">
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
             <a 
               href="#experience-section" 
               onClick={(e) => {
@@ -140,13 +143,79 @@ export default function Home() {
               <Terminal className="w-4 h-4" />
             </button>
           </nav>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={() => setIsTerminalOpen(true)}
+              className="text-slate-400 hover:text-slate-200 transition-colors p-2 rounded hover:bg-slate-800"
+              aria-label="Open terminal"
+            >
+              <Terminal className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-slate-400 hover:text-slate-200 transition-colors p-2 rounded hover:bg-slate-800"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`block w-6 h-0.5 bg-slate-400 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`block w-6 h-0.5 bg-slate-400 transition-all duration-300 my-1 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block w-6 h-0.5 bg-slate-400 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+              </div>
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden absolute top-full left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-zinc-800">
+              <nav className="flex flex-col gap-4 px-4 py-6">
+                <a 
+                  href="#experience-section" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById('experience-section');
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm py-2"
+                >
+                  [ Experience ]
+                </a>
+                <a 
+                  href="#education-section" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById('education-section');
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm py-2"
+                >
+                  [ Education ]
+                </a>
+                <a 
+                  href="#projects-section" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById('projects-section');
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm py-2"
+                >
+                  [ Projects ]
+                </a>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
       
       {/* Hero Section */}
       <section className="flex items-center justify-center min-h-screen relative overflow-hidden">
         <BrownianMotionBackground />
-        <div className="max-w-6xl mx-auto px-6 py-20 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-20 relative z-10">
           <div className="grid md:grid-cols-1 gap-12 items-center lg:grid-cols-2">
             {/* Left Column - Text Content */}
             <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
@@ -254,7 +323,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-slate-50">Professional Experience</h2>
             </div>
             
-            <div className="relative border-l-2 border-zinc-800 ml-4">
+            <div className="relative border-l-2 border-zinc-800 ml-2 md:ml-4">
               {/* Macquarie Senior Associate */}
               <div className="relative mb-12 ml-8">
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
@@ -366,7 +435,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-slate-50">Education</h2>
             </div>
             
-            <div className="relative border-l-2 border-zinc-800 ml-4">
+            <div className="relative border-l-2 border-zinc-800 ml-2 md:ml-4">
               {/* NYU Tandon */}
               <div className="relative mb-12 ml-8">
                 <div className="absolute -left-10 w-4 h-4 bg-slate-50 rounded-full border-2 border-slate-900"></div>
@@ -439,7 +508,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-slate-50">Projects</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {/* SABR Model Calibration */}
             <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
               <CardHeader>
