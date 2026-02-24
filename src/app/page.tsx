@@ -461,7 +461,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-300">
-                      Specializing in quantitative finance, risk management, and computational methods with coursework in Probability Theory, Stochastic Processes, and Machine Learning.
+                      Specializations: High-Frequency Finance, Algorithmic Trading, Fixed Income Market Making, and Quantitative Valuation.
                     </p>
                   </CardContent>
                 </Card>
@@ -511,16 +511,16 @@ export default function Home() {
           
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {/* SABR Model Calibration */}
-            <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+            <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors flex flex-col h-full">
               <CardHeader>
                 <CardTitle className="text-slate-50">SABR Model Calibration</CardTitle>
                 <CardDescription className="text-slate-400">
                   Fixed Income & Volatility Modeling
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 flex-1 flex flex-col">
                 <p className="text-slate-300">
-                  Implemented the Stochastic Alpha Beta Rho (SABR) model for volatility surface modeling and calibration to market data.
+                  Implemented Stochastic Alpha Beta Rho (SABR) model for volatility surface modeling and calibration to market data.
                 </p>
                 
                 <div className="bg-slate-800/50 p-4 rounded-lg">
@@ -600,13 +600,13 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 mt-auto">
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Python</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Quantitative Finance</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Stochastic Calculus</Badge>
                 </div>
                 
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <Button 
                     variant="ghost" 
                     size="sm"
@@ -614,7 +614,7 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://github.com/siddhantsingh-1" 
+                      href="https://github.com/siddhantsingh-1/sabr-calibration" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
@@ -631,13 +631,13 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://demo.example.com" 
+                      href="https://sabrcalibration.streamlit.app/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Live Demo
+                      Interactive Tool
                     </a>
                   </Button>
                 </div>
@@ -645,34 +645,97 @@ export default function Home() {
             </Card>
 
             {/* Stevens HFT Competition */}
-            <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
+            <Card className="border-zinc-800 bg-slate-900/50 hover:bg-slate-900/70 transition-colors flex flex-col h-full">
               <CardHeader>
-                <CardTitle className="text-slate-50">Stevens HFT Competition 2026</CardTitle>
+                <CardTitle className="text-slate-50">Limit Order Book (LOB) Engine, Stevens HFT Competition</CardTitle>
                 <CardDescription className="text-slate-400">
-                  Team: Sub Zero Latency
+                  Team: Sub Zero Latency | 02/26 - Present
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-slate-300">
-                  Developed a low-latency market-making strategy in C++ with focus on limit order book dynamics and high-frequency trading execution.
-                </p>
-                
+              <CardContent className="space-y-4 flex-1 flex flex-col">
                 <div className="bg-slate-800/50 p-4 rounded-lg">
-                  <p className="text-slate-400 text-sm mb-2">Key Optimizations:</p>
-                  <div className="text-slate-200 text-sm space-y-1">
-                    <p>• Optimized Sharpe ratio through dynamic position sizing</p>
-                    <p>• Implemented bid-ask spread heuristics for market impact minimization</p>
-                    <p>• Real-time limit order book analysis with microsecond latency</p>
+                  <p className="text-slate-300">
+                    Developed a high-performance limit order book to process real-time order flow, implementing price-priority matching logic to clear the initial technical screening for the 2026 competition. Currently architecting low-latency execution strategies and market-making algorithms to be stress-tested in the March-April 2026 competition phase.
+                  </p>
+                </div>
+                
+                {/* LOB Depth Chart */}
+                <div className="bg-slate-800/50 p-4 rounded-lg flex-1">
+                  <p className="text-slate-400 text-sm mb-4">Limit Order Book Depth:</p>
+                  <div className="h-48 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart 
+                        data={[
+                          { price: 98, bid: 800, ask: null },
+                          { price: 99, bid: 400, ask: null }, 
+                          { price: 99.5, bid: 150, ask: null }, 
+                          { price: 100, bid: null, ask: null }, // Spread
+                          { price: 100.5, bid: null, ask: 200 }, 
+                          { price: 101, bid: null, ask: 500 }, 
+                          { price: 102, bid: null, ask: 900 }
+                        ]}
+                        margin={{ top: 5, right: 5, bottom: 5, left: 5 }}
+                      >
+                        <XAxis 
+                          dataKey="price" 
+                          stroke="#64748b" 
+                          fontSize={10}
+                          tick={{ fill: '#64748b' }}
+                          axisLine={false}
+                          tickLine={false}
+                          domain={[98, 102]}
+                        />
+                        <YAxis 
+                          stroke="#64748b" 
+                          fontSize={10}
+                          tick={{ fill: '#64748b' }}
+                          axisLine={false}
+                          tickLine={false}
+                          reversed={true}
+                          domain={[0, 1000]}
+                        />
+                        <Tooltip 
+                          contentStyle={{ 
+                            backgroundColor: '#1e293b', 
+                            border: '1px solid #334155',
+                            borderRadius: '6px',
+                            fontSize: '12px'
+                          }}
+                          labelStyle={{ color: '#e2e8f0' }}
+                          formatter={(value: any) => [`$${value}`, '']}
+                          labelFormatter={(label) => [`Price: $${label}`, '']}
+                        />
+                        <Line 
+                          type="monotone" 
+                          dataKey="bid" 
+                          stroke="#10b981" 
+                          strokeWidth={2}
+                          dot={false}
+                          fill="#10b981"
+                          fillOpacity={0.3}
+                        />
+                        <Line 
+                          type="monotone" 
+                          dataKey="ask" 
+                          stroke="#ef4444" 
+                          strokeWidth={2}
+                          dot={false}
+                          fill="#ef4444"
+                          fillOpacity={0.3}
+                        />
+                      </LineChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">C++</Badge>
+                <div className="flex flex-wrap gap-2 mb-4 mt-auto">
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Python</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">HFT</Badge>
                   <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">Algorithmic Trading</Badge>
+                  <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-zinc-700 hover:bg-slate-700">SHIFT</Badge>
                 </div>
                 
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <Button 
                     variant="ghost" 
                     size="sm"
@@ -680,7 +743,7 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://github.com/siddhantsingh-1" 
+                      href="https://github.com/stevens-hftc/technical-assessment-subzero_latency" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
@@ -697,13 +760,13 @@ export default function Home() {
                     asChild
                   >
                     <a 
-                      href="https://demo.example.com" 
+                      href="https://www.stevens.edu/school-business/2026-stevens-high-frequency-trading-competition" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Live Demo
+                      Competition Details
                     </a>
                   </Button>
                 </div>
